@@ -33,7 +33,7 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-	registry.addResourceHandler("/assets/**").addResourceLocations(
+	registry.addResourceHandler("/WEB-INF/assets/**").addResourceLocations(
 		"/assets/");
     }
 
