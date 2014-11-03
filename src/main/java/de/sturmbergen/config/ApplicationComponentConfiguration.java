@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 // @EnableJpaRepositories("de.sturmbergen.repositories")
-@ComponentScan(basePackages = { "de,sturmbergen" }, excludeFilters = {
+@ComponentScan(basePackages = { "de.sturmbergen" }, excludeFilters = {
 	@Filter(Controller.class),
 	@Filter(type = FilterType.ASSIGNABLE_TYPE, value = WebMvcConfiguration.class) })
 @PropertySource("classpath:application.properties")
