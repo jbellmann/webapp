@@ -1,11 +1,13 @@
 package de.sturmbergen.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
 // @EnableJpaRepositories("de.sturmbergen.repositories")
@@ -71,4 +73,9 @@ public class ApplicationComponentConfiguration {
     //
     // return entityManagerFactoryBean;
     // }
+
+    @Bean
+    public RestTemplate restClient() {
+	return new RestTemplate();
+    }
 }
