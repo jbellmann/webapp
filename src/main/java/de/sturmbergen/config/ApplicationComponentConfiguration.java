@@ -6,16 +6,25 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.PropertySource;
+
 import org.springframework.stereotype.Controller;
+
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
+
 // @EnableJpaRepositories("de.sturmbergen.repositories")
-@ComponentScan(basePackages = { "de.sturmbergen" }, excludeFilters = {
-	@Filter(Controller.class),
-	@Filter(type = FilterType.ASSIGNABLE_TYPE, value = WebMvcConfiguration.class) })
+@ComponentScan(
+    basePackages = {"de.sturmbergen"},
+    excludeFilters = {
+        @Filter(Controller.class), @Filter(
+            type = FilterType.ASSIGNABLE_TYPE, value = WebMvcConfiguration.class
+        )
+    }
+)
 @PropertySource("classpath:application.properties")
 public class ApplicationComponentConfiguration {
+
     private static final String PROPERTY_NAME_HIBERNATE_DIALECT = "hibernate.dialect";
     private static final String PROPERTY_NAME_HIBERNATE_FORMAT_SQL = "hibernate.format_sql";
     private static final String PROPERTY_NAME_HIBERNATE_NAMING_STRATEGY = "hibernate.ejb.naming_strategy";
@@ -76,6 +85,6 @@ public class ApplicationComponentConfiguration {
 
     @Bean
     public RestTemplate restClient() {
-	return new RestTemplate();
+        return new RestTemplate();
     }
 }

@@ -1,7 +1,9 @@
 package de.sturmbergen.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Component;
+
 import org.springframework.web.client.RestTemplate;
 
 import de.sturmbergen.service.status.ServerStatus;
@@ -15,8 +17,9 @@ public class ServerStatusServiceImpl implements ServerStatusService {
 
     @Override
     public ServerStatus getStatus() {
-	return rest.getForObject("http://sturmbergen.no-ip.org/j.son",
-		ServerStatus.class);
+        String result = rest.getForObject("http://sturmbergen.no-ip.org/j.son", String.class);
+        System.out.println(result);
+        return rest.getForObject("http://sturmbergen.no-ip.org/j.son", ServerStatus.class);
     }
 
 }
