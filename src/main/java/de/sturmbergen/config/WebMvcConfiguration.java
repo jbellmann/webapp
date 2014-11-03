@@ -1,6 +1,5 @@
 package de.sturmbergen.config;
 
-import java.util.List;
 import java.util.Locale;
 
 import org.springframework.context.MessageSource;
@@ -9,9 +8,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
-import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -43,13 +39,14 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 	configurer.enable();
     }
 
-    @Override
-    public void addArgumentResolvers(
-	    List<HandlerMethodArgumentResolver> argumentResolvers) {
-	PageableHandlerMethodArgumentResolver resolver = new PageableHandlerMethodArgumentResolver();
-	resolver.setFallbackPageable(new PageRequest(1, 10));
-	argumentResolvers.add(resolver);
-    }
+    // @Override
+    // public void addArgumentResolvers(
+    // List<HandlerMethodArgumentResolver> argumentResolvers) {
+    // PageableHandlerMethodArgumentResolver resolver = new
+    // PageableHandlerMethodArgumentResolver();
+    // resolver.setFallbackPageable(new PageRequest(1, 10));
+    // argumentResolvers.add(resolver);
+    // }
 
     @Override
     public void addInterceptors(InterceptorRegistry interceptorRegistry) {
