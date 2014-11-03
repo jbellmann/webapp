@@ -98,15 +98,15 @@
 				<div class="col-lg-2 col-md-2 col-sm-3">
 					<div class="panel panel-default">
 						<div class="panel-heading">Serverstatus</div>
-						<div class="panel-body" th:text="${status}">Server Online</div>
+						<div class="panel-body" th:text="${status.status}">Server Online</div>
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-heading">Spieler Online</div>
 						<div class="panel-body">
-							<ul class="list-unstyled" th:each="pl : ${players}">
+							<ul class="list-unstyled" th:each="pl : ${status.players}">
 								<li th:text="${pl.charname}">test</li>
 							</ul>
-							<ul class="list-unstyled" th:each="dm : ${sls}">
+							<ul class="list-unstyled" th:each="dm : ${status.sls}">
 								<li th:text="${dm.object}">test</li>
 							</ul>
 						</div>
